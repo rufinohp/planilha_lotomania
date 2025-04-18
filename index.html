@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planilha Lotomania</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .palpite {
+            margin-top: 20px;
+        }
+        .selected {
+            background-color: #c8e6c9;
+        }
+        button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Planilha Lotomania</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Grupo</th>
+                <th>Dezenas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Grupo 1</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">01</span>, <span class="selectable" onclick="toggleSelection(this)">02</span>, <span class="selectable" onclick="toggleSelection(this)">03</span>, <span class="selectable" onclick="toggleSelection(this)">04</span>, <span class="selectable" onclick="toggleSelection(this)">05</span>, <span class="selectable" onclick="toggleSelection(this)">06</span>, <span class="selectable" onclick="toggleSelection(this)">07</span>, <span class="selectable" onclick="toggleSelection(this)">08</span>, <span class="selectable" onclick="toggleSelection(this)">09</span>, <span class="selectable" onclick="toggleSelection(this)">10</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 2</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">11</span>, <span class="selectable" onclick="toggleSelection(this)">12</span>, <span class="selectable" onclick="toggleSelection(this)">13</span>, <span class="selectable" onclick="toggleSelection(this)">14</span>, <span class="selectable" onclick="toggleSelection(this)">15</span>, <span class="selectable" onclick="toggleSelection(this)">16</span>, <span class="selectable" onclick="toggleSelection(this)">17</span>, <span class="selectable" onclick="toggleSelection(this)">18</span>, <span class="selectable" onclick="toggleSelection(this)">19</span>, <span class="selectable" onclick="toggleSelection(this)">20</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 3</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">21</span>, <span class="selectable" onclick="toggleSelection(this)">22</span>, <span class="selectable" onclick="toggleSelection(this)">23</span>, <span class="selectable" onclick="toggleSelection(this)">24</span>, <span class="selectable" onclick="toggleSelection(this)">25</span>, <span class="selectable" onclick="toggleSelection(this)">26</span>, <span class="selectable" onclick="toggleSelection(this)">27</span>, <span class="selectable" onclick="toggleSelection(this)">28</span>, <span class="selectable" onclick="toggleSelection(this)">29</span>, <span class="selectable" onclick="toggleSelection(this)">30</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 4</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">31</span>, <span class="selectable" onclick="toggleSelection(this)">32</span>, <span class="selectable" onclick="toggleSelection(this)">33</span>, <span class="selectable" onclick="toggleSelection(this)">34</span>, <span class="selectable" onclick="toggleSelection(this)">35</span>, <span class="selectable" onclick="toggleSelection(this)">36</span>, <span class="selectable" onclick="toggleSelection(this)">37</span>, <span class="selectable" onclick="toggleSelection(this)">38</span>, <span class="selectable" onclick="toggleSelection(this)">39</span>, <span class="selectable" onclick="toggleSelection(this)">40</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 5</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">41</span>, <span class="selectable" onclick="toggleSelection(this)">42</span>, <span class="selectable" onclick="toggleSelection(this)">43</span>, <span class="selectable" onclick="toggleSelection(this)">44</span>, <span class="selectable" onclick="toggleSelection(this)">45</span>, <span class="selectable" onclick="toggleSelection(this)">46</span>, <span class="selectable" onclick="toggleSelection(this)">47</span>, <span class="selectable" onclick="toggleSelection(this)">48</span>, <span class="selectable" onclick="toggleSelection(this)">49</span>, <span class="selectable" onclick="toggleSelection(this)">50</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 6</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">51</span>, <span class="selectable" onclick="toggleSelection(this)">52</span>, <span class="selectable" onclick="toggleSelection(this)">53</span>, <span class="selectable" onclick="toggleSelection(this)">54</span>, <span class="selectable" onclick="toggleSelection(this)">55</span>, <span class="selectable" onclick="toggleSelection(this)">56</span>, <span class="selectable" onclick="toggleSelection(this)">57</span>, <span class="selectable" onclick="toggleSelection(this)">58</span>, <span class="selectable" onclick="toggleSelection(this)">59</span>, <span class="selectable" onclick="toggleSelection(this)">60</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 7</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">61</span>, <span class="selectable" onclick="toggleSelection(this)">62</span>, <span class="selectable" onclick="toggleSelection(this)">63</span>, <span class="selectable" onclick="toggleSelection(this)">64</span>, <span class="selectable" onclick="toggleSelection(this)">65</span>, <span class="selectable" onclick="toggleSelection(this)">66</span>, <span class="selectable" onclick="toggleSelection(this)">67</span>, <span class="selectable" onclick="toggleSelection(this)">68</span>, <span class="selectable" onclick="toggleSelection(this)">69</span>, <span class="selectable" onclick="toggleSelection(this)">70</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 8</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">71</span>, <span class="selectable" onclick="toggleSelection(this)">72</span>, <span class="selectable" onclick="toggleSelection(this)">73</span>, <span class="selectable" onclick="toggleSelection(this)">74</span>, <span class="selectable" onclick="toggleSelection(this)">75</span>, <span class="selectable" onclick="toggleSelection(this)">76</span>, <span class="selectable" onclick="toggleSelection(this)">77</span>, <span class="selectable" onclick="toggleSelection(this)">78</span>, <span class="selectable" onclick="toggleSelection(this)">79</span>, <span class="selectable" onclick="toggleSelection(this)">80</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 9</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">81</span>, <span class="selectable" onclick="toggleSelection(this)">82</span>, <span class="selectable" onclick="toggleSelection(this)">83</span>, <span class="selectable" onclick="toggleSelection(this)">84</span>, <span class="selectable" onclick="toggleSelection(this)">85</span>, <span class="selectable" onclick="toggleSelection(this)">86</span>, <span class="selectable" onclick="toggleSelection(this)">87</span>, <span class="selectable" onclick="toggleSelection(this)">88</span>, <span class="selectable" onclick="toggleSelection(this)">89</span>, <span class="selectable" onclick="toggleSelection(this)">90</span></td>
+            </tr>
+            <tr>
+                <td>Grupo 10</td>
+                <td><span class="selectable" onclick="toggleSelection(this)">91</span>, <span class="selectable" onclick="toggleSelection(this)">92</span>, <span class="selectable" onclick="toggleSelection(this)">93</span>, <span class="selectable" onclick="toggleSelection(this)">94</span>, <span class="selectable" onclick="toggleSelection(this)">95</span>, <span class="selectable" onclick="toggleSelection(this)">96</span>, <span class="selectable" onclick="toggleSelection(this)">97</span>, <span class="selectable" onclick="toggleSelection(this)">98</span>, <span class="selectable" onclick="toggleSelection(this)">99</span>, <span class="selectable" onclick="toggleSelection(this)">00</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="generatePalpites()">Gerar Palpites</button>
+    <button onclick="clearSelections()">Limpar Seleção</button>
+
+    <div id="palpites" style="display: none;">
+        <div class="palpite">
+            <h2>Palpite 1</h2>
+            <p id="palpite1"></p>
+        </div>
+        <div class="palpite">
+            <h2>Palpite 2</h2>
+            <p id="palpite2"></p>
+        </div>
+    </div>
+
+    <script>
+        let selectedNumbers = [];
+
+        function toggleSelection(element) {
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+                selectedNumbers = selectedNumbers.filter(num => num !== element.textContent);
+            } else {
+                if (selectedNumbers.length < 60) {
+                    element.classList.add('selected');
+                    selectedNumbers.push(element.textContent);
+                } else {
+                    alert('Você já selecionou 60 dezenas!');
+                }
+            }
+        }
+
+        function generatePalpites() {
+            if (selectedNumbers.length !== 60) {
+                alert('Selecione exatamente 60 dezenas para gerar os palpites.');
+                return;
+            }
+
+            // Ordena as dezenas selecionadas
+            const sortedNumbers = [...selectedNumbers].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+
+            // Divide as dezenas em dois grupos para criar variação
+            const group1 = sortedNumbers.slice(0, 50);
+            const group2 = sortedNumbers.slice(10, 60);
+
+            // Cria os palpites com 50 dezenas cada
+            const palpite1 = [...group1].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+            const palpite2 = [...group2].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+
+            // Verifica se há repetição de dezenas no mesmo palpite
+            if (new Set(palpite1).size !== palpite1.length || new Set(palpite2).size !== palpite2.length) {
+                alert('Erro ao gerar palpites. Por favor, tente novamente.');
+                return;
+            }
+
+            document.getElementById('palpite1').textContent = palpite1.join(', ');
+            document.getElementById('palpite2').textContent = palpite2.join(', ');
+            document.getElementById('palpites').style.display = 'block';
+        }
+
+        function clearSelections() {
+            // Remove a classe 'selected' de todos os elementos selecionáveis
+            document.querySelectorAll('.selected').forEach(element => {
+                element.classList.remove('selected');
+            });
+
+            // Limpa o array de números selecionados
+            selectedNumbers = [];
+
+            // Esconde os palpites gerados
+            document.getElementById('palpites').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
