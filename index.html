@@ -1,162 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planilha Lotomania</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        table {
-            width: 70%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        .palpite {
-            margin-top: 20px;
-        }
-        .selected {
-            background-color: #c8e6c9;
-        }
-        button {
-            margin-right: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planilha Lotomania 10 para 4</title>
+
+  <!-- FAVICONS -->
+  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="android-chrome-192x192.png" sizes="192x192" type="image/png">
+
+  <!-- PWA MANIFEST -->
+  <link rel="manifest" href="site.webmanifest">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 15px 0;
+      text-align: center;
+      color: #FF6B35;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 10px auto;
+      width: 95%;
+      max-width: 400px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    td {
+      border: 1px solid #FF6B35;
+      text-align: center;
+      padding: 6px;
+      width: 10%;
+      cursor: pointer;
+      background-color: #fff;
+      transition: background-color 0.2s ease;
+    }
+
+    td.selected {
+      background-color: #FFF3E0 !important;
+    }
+
+    .instructions {
+      text-align: center;
+      margin: 15px 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      background: #FFE0B2;
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 360px;
+    }
+
+    .tips {
+      margin: 20px 10px;
+      text-align: center;
+      max-width: 360px;
+    }
+
+    .tips h3 {
+      margin-bottom: 10px;
+      color: #FF6B35;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #FF6B35;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 24px;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    button:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
-    <h1>Planilha Lotomania</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Grupo</th>
-                <th>Dezenas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Grupo 1</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">01</span>, <span class="selectable" onclick="toggleSelection(this)">02</span>, <span class="selectable" onclick="toggleSelection(this)">03</span>, <span class="selectable" onclick="toggleSelection(this)">04</span>, <span class="selectable" onclick="toggleSelection(this)">05</span>, <span class="selectable" onclick="toggleSelection(this)">06</span>, <span class="selectable" onclick="toggleSelection(this)">07</span>, <span class="selectable" onclick="toggleSelection(this)">08</span>, <span class="selectable" onclick="toggleSelection(this)">09</span>, <span class="selectable" onclick="toggleSelection(this)">10</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 2</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">11</span>, <span class="selectable" onclick="toggleSelection(this)">12</span>, <span class="selectable" onclick="toggleSelection(this)">13</span>, <span class="selectable" onclick="toggleSelection(this)">14</span>, <span class="selectable" onclick="toggleSelection(this)">15</span>, <span class="selectable" onclick="toggleSelection(this)">16</span>, <span class="selectable" onclick="toggleSelection(this)">17</span>, <span class="selectable" onclick="toggleSelection(this)">18</span>, <span class="selectable" onclick="toggleSelection(this)">19</span>, <span class="selectable" onclick="toggleSelection(this)">20</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 3</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">21</span>, <span class="selectable" onclick="toggleSelection(this)">22</span>, <span class="selectable" onclick="toggleSelection(this)">23</span>, <span class="selectable" onclick="toggleSelection(this)">24</span>, <span class="selectable" onclick="toggleSelection(this)">25</span>, <span class="selectable" onclick="toggleSelection(this)">26</span>, <span class="selectable" onclick="toggleSelection(this)">27</span>, <span class="selectable" onclick="toggleSelection(this)">28</span>, <span class="selectable" onclick="toggleSelection(this)">29</span>, <span class="selectable" onclick="toggleSelection(this)">30</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 4</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">31</span>, <span class="selectable" onclick="toggleSelection(this)">32</span>, <span class="selectable" onclick="toggleSelection(this)">33</span>, <span class="selectable" onclick="toggleSelection(this)">34</span>, <span class="selectable" onclick="toggleSelection(this)">35</span>, <span class="selectable" onclick="toggleSelection(this)">36</span>, <span class="selectable" onclick="toggleSelection(this)">37</span>, <span class="selectable" onclick="toggleSelection(this)">38</span>, <span class="selectable" onclick="toggleSelection(this)">39</span>, <span class="selectable" onclick="toggleSelection(this)">40</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 5</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">41</span>, <span class="selectable" onclick="toggleSelection(this)">42</span>, <span class="selectable" onclick="toggleSelection(this)">43</span>, <span class="selectable" onclick="toggleSelection(this)">44</span>, <span class="selectable" onclick="toggleSelection(this)">45</span>, <span class="selectable" onclick="toggleSelection(this)">46</span>, <span class="selectable" onclick="toggleSelection(this)">47</span>, <span class="selectable" onclick="toggleSelection(this)">48</span>, <span class="selectable" onclick="toggleSelection(this)">49</span>, <span class="selectable" onclick="toggleSelection(this)">50</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 6</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">51</span>, <span class="selectable" onclick="toggleSelection(this)">52</span>, <span class="selectable" onclick="toggleSelection(this)">53</span>, <span class="selectable" onclick="toggleSelection(this)">54</span>, <span class="selectable" onclick="toggleSelection(this)">55</span>, <span class="selectable" onclick="toggleSelection(this)">56</span>, <span class="selectable" onclick="toggleSelection(this)">57</span>, <span class="selectable" onclick="toggleSelection(this)">58</span>, <span class="selectable" onclick="toggleSelection(this)">59</span>, <span class="selectable" onclick="toggleSelection(this)">60</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 7</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">61</span>, <span class="selectable" onclick="toggleSelection(this)">62</span>, <span class="selectable" onclick="toggleSelection(this)">63</span>, <span class="selectable" onclick="toggleSelection(this)">64</span>, <span class="selectable" onclick="toggleSelection(this)">65</span>, <span class="selectable" onclick="toggleSelection(this)">66</span>, <span class="selectable" onclick="toggleSelection(this)">67</span>, <span class="selectable" onclick="toggleSelection(this)">68</span>, <span class="selectable" onclick="toggleSelection(this)">69</span>, <span class="selectable" onclick="toggleSelection(this)">70</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 8</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">71</span>, <span class="selectable" onclick="toggleSelection(this)">72</span>, <span class="selectable" onclick="toggleSelection(this)">73</span>, <span class="selectable" onclick="toggleSelection(this)">74</span>, <span class="selectable" onclick="toggleSelection(this)">75</span>, <span class="selectable" onclick="toggleSelection(this)">76</span>, <span class="selectable" onclick="toggleSelection(this)">77</span>, <span class="selectable" onclick="toggleSelection(this)">78</span>, <span class="selectable" onclick="toggleSelection(this)">79</span>, <span class="selectable" onclick="toggleSelection(this)">80</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 9</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">81</span>, <span class="selectable" onclick="toggleSelection(this)">82</span>, <span class="selectable" onclick="toggleSelection(this)">83</span>, <span class="selectable" onclick="toggleSelection(this)">84</span>, <span class="selectable" onclick="toggleSelection(this)">85</span>, <span class="selectable" onclick="toggleSelection(this)">86</span>, <span class="selectable" onclick="toggleSelection(this)">87</span>, <span class="selectable" onclick="toggleSelection(this)">88</span>, <span class="selectable" onclick="toggleSelection(this)">89</span>, <span class="selectable" onclick="toggleSelection(this)">90</span></td>
-            </tr>
-            <tr>
-                <td>Grupo 10</td>
-                <td><span class="selectable" onclick="toggleSelection(this)">91</span>, <span class="selectable" onclick="toggleSelection(this)">92</span>, <span class="selectable" onclick="toggleSelection(this)">93</span>, <span class="selectable" onclick="toggleSelection(this)">94</span>, <span class="selectable" onclick="toggleSelection(this)">95</span>, <span class="selectable" onclick="toggleSelection(this)">96</span>, <span class="selectable" onclick="toggleSelection(this)">97</span>, <span class="selectable" onclick="toggleSelection(this)">98</span>, <span class="selectable" onclick="toggleSelection(this)">99</span>, <span class="selectable" onclick="toggleSelection(this)">00</span></td>
-            </tr>
-        </tbody>
-    </table>
+  <h1>PLANILHA LOTOMANIA 10 PARA 4</h1>
 
-    <button onclick="generatePalpites()">Gerar Palpites</button>
-    <button onclick="clearSelections()">Limpar Seleção</button>
+  <table id="lotomaniaTable"></table>
 
-    <div id="palpites" style="display: none;">
-        <div class="palpite">
-            <h2>Palpite 1</h2>
-            <p id="palpite1"></p>
-        </div>
-        <div class="palpite">
-            <h2>Palpite 2</h2>
-            <p id="palpite2"></p>
-        </div>
-    </div>
+  <button id="generateTipsButton" disabled>Gerar Palpites</button>
+  <button onclick="shareOnWhatsApp()">Compartilhar no WhatsApp</button>
 
-    <script>
-        let selectedNumbers = [];
+  <div class="instructions">
+    <div>Escolha 10 dezenas 1x</div>
+    <div>Escolha 10 dezenas 2x</div>
+    <div>Escolha 10 dezenas 3x</div>
+    <div>Escolha 10 dezenas 4x</div>
+    <div>Escolha 10 dezenas atrasadas</div>
+    <div>Escolha 10 dezenas repetidas</div>
+  </div>
 
-        function toggleSelection(element) {
-            if (element.classList.contains('selected')) {
-                element.classList.remove('selected');
-                selectedNumbers = selectedNumbers.filter(num => num !== element.textContent);
-            } else {
-                if (selectedNumbers.length < 60) {
-                    element.classList.add('selected');
-                    selectedNumbers.push(element.textContent);
-                } else {
-                    alert('Você já selecionou 60 dezenas!');
-                }
-            }
+  <div class="tips">
+    <h3>Palpites Gerados</h3>
+    <div id="tip1"></div>
+    <div id="tip2"></div>
+  </div>
+
+  <script>
+    const numbers = Array.from({ length: 100 }, (_, i) => (i + 1).toString().padStart(2, '0'));
+    let selectedNumbers = [];
+
+    function createTable() {
+      const table = document.getElementById('lotomaniaTable');
+      let row = document.createElement('tr');
+      numbers.forEach((number, index) => {
+        const cell = document.createElement('td');
+        cell.textContent = number;
+        cell.addEventListener('click', () => toggleSelection(cell, number));
+        row.appendChild(cell);
+        if ((index + 1) % 10 === 0) {
+          table.appendChild(row);
+          row = document.createElement('tr');
         }
+      });
+    }
 
-        function generatePalpites() {
-            if (selectedNumbers.length !== 60) {
-                alert('Selecione exatamente 60 dezenas para gerar os palpites.');
-                return;
-            }
-
-            // Ordena as dezenas selecionadas
-            const sortedNumbers = [...selectedNumbers].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
-
-            // Divide as dezenas em dois grupos para criar variação
-            const group1 = sortedNumbers.slice(0, 50);
-            const group2 = sortedNumbers.slice(10, 60);
-
-            // Cria os palpites com 50 dezenas cada
-            const palpite1 = [...group1].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
-            const palpite2 = [...group2].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
-
-            // Verifica se há repetição de dezenas no mesmo palpite
-            if (new Set(palpite1).size !== palpite1.length || new Set(palpite2).size !== palpite2.length) {
-                alert('Erro ao gerar palpites. Por favor, tente novamente.');
-                return;
-            }
-
-            document.getElementById('palpite1').textContent = palpite1.join(', ');
-            document.getElementById('palpite2').textContent = palpite2.join(', ');
-            document.getElementById('palpites').style.display = 'block';
+    function toggleSelection(cell, number) {
+      if (cell.classList.contains('selected')) {
+        cell.classList.remove('selected');
+        selectedNumbers = selectedNumbers.filter(n => n !== number);
+      } else {
+        if (selectedNumbers.length >= 60) {
+          alert('Você só pode selecionar até 60 números.');
+          return;
         }
+        cell.classList.add('selected');
+        selectedNumbers.push(number);
+      }
+      updateButtonState();
+    }
 
-        function clearSelections() {
-            // Remove a classe 'selected' de todos os elementos selecionáveis
-            document.querySelectorAll('.selected').forEach(element => {
-                element.classList.remove('selected');
-            });
+    function updateButtonState() {
+      const button = document.getElementById('generateTipsButton');
+      button.disabled = selectedNumbers.length !== 60;
+    }
 
-            // Limpa o array de números selecionados
-            selectedNumbers = [];
+    function generateTips() {
+      const sortedNumbers = [...selectedNumbers].map(num => parseInt(num)).sort((a, b) => a - b);
 
-            // Esconde os palpites gerados
-            document.getElementById('palpites').style.display = 'none';
-        }
-    </script>
+      // Palpite 1: remove as primeiras 10
+      const tip1Numbers = sortedNumbers.slice(10, 60); 
+      const tip1 = tip1Numbers.map(num => num.toString().padStart(2, '0')).join(', ');
+
+      // Palpite 2: remove as últimas 10
+      const tip2Numbers = sortedNumbers.slice(0, 50); 
+      const tip2 = tip2Numbers.map(num => num.toString().padStart(2, '0')).join(', ');
+
+      document.getElementById('tip1').textContent = `Palpite 1: ${tip1}`;
+      document.getElementById('tip2').textContent = `Palpite 2: ${tip2}`;
+    }
+
+    function shareOnWhatsApp() {
+      const tip1Text = document.getElementById('tip1').textContent.trim();
+      const tip2Text = document.getElementById('tip2').textContent.trim();
+
+      const message = encodeURIComponent(`
+PALPITES LOTOMANIA 10 PARA 4
+
+${tip1Text}
+${tip2Text}
+
+Sorteio baseado na planilha "10 para 4" da Lotomania.
+`);
+      window.open(`https://wa.me/?text=${message}`);
+    }
+
+    createTable();
+    document.getElementById('generateTipsButton').addEventListener('click', generateTips);
+  </script>
 </body>
 </html>
